@@ -1,5 +1,5 @@
 .vscode
 bin/
-node_modules
+node_modules/
 *_private_key
 build

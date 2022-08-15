@@ -4,12 +4,18 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "@openzeppelin/contracts": "^4.7.3",
+    "@openzeppelin/contracts": "^2.x.x",
     "axios": "^0.27.2",
     "bn.js": "^5.2.1",
     "loom-js": "1.80.0",
     "loom-truffle-provider": "0.16.0",
     "truffle": "^5.5.26",
     "websocket": "^1.0.34"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy:oracle": "cd oracle && npx truffle migrate --network extdev --reset -all && cd ..",
+    "deploy:caller": "cd caller && npx truffle migrate --network extdev --reset -all && cd ..",
+    "deploy:all": "npm run deploy:oracle && npm run deploy:caller"
   }
 }
