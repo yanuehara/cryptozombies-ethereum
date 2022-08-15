@@ -1,0 +1,15 @@
+{
+  "name": "EthPriceOracle",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.7.3",
+    "axios": "^0.27.2",
+    "bn.js": "^5.2.1",
+    "loom-js": "1.80.0",
+    "loom-truffle-provider": "0.16.0",
+    "truffle": "^5.5.26",
+    "websocket": "^1.0.34"
+  }
+}
