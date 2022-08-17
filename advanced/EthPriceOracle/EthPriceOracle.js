@@ -37,6 +37,19 @@ async function filterEvents (oracleContract, web3js) {
     if (err) console.error('Error on event', err)
    
   })
+
+
+  oracleContract.events.SetThresholdEvent(async (err, event) => {
+    if (err) console.error('Error on set threshold', err)
+
+    console.log('Threshold updated: ', event.returnValues.threshold)
+  })
+
+  oracleContract.events.AddOracleEvent(async (err, event) => {
+    if (err) console.error('Error while adding oracle', err)
+
+    console.log('New oracle added: ', event.returnValues.oracleAddress)
+  })
 }
 
 async function addRequestToQueue (event) {
@@ -94,6 +107,8 @@ async function init () {
 
 (async () => {
   const { oracleContract, ownerAddress, client } = await init()
+  await oracleContract.methods.setThreshold(1).send({from: ownerAddress})
+  await oracleContract.methods.addOracle(ownerAddress).send({from: ownerAddress})
   process.on( 'SIGINT', () => {
     console.log('Calling client.disconnect()')
     client.disconnect()
